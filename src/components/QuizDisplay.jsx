@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
+import Welcome from './Welcome'
+import If from './If'
 
 function QuizDisplay() {
     const [selectedTopic, setSelectedTopic] = useState("")
@@ -7,18 +9,19 @@ function QuizDisplay() {
     const state = useSelector((state) => state.state.quizzes)
   return (
     <main className='pt-8 px-6 bg-lightbg'>
-        <h1 className='text-dark-navy'>Welcome to the</h1>
-        <h1 className='font-bold mb-4 text-dark-navy'>Frontend Quiz!</h1>
-        <p className='text-grey-navy mb-10'>Pick a subject to get started.</p>
-        {state.map((state) => {
-            console.log(state)
+        {selectedTopic === "" ? <Welcome /> : null}
+        {selectedTopic === "HTML" ? <If selectedTopic={0} /> : null}
+        {selectedTopic === "CSS" ? <If selectedTopic={1} /> : null}
+        {selectedTopic === "JavaScript" ? <If selectedTopic={2} /> : null}
+        {selectedTopic === "Accessibility" ? <If selectedTopic={3} /> : null}
+        {selectedTopic === "" ? state.map((state) => {
             return (
                 <div key={state.title} className='flex flex-col'>
                     <button className='flex items-center gap-3 mb-6 bg-pure-white p-3' onClick={(e) => {setSelectedTopic(state.title)}}><img src={`${state.icon}`} />{state.title}</button>
                 </div>
             )
         })
-        }
+       : null }
     </main>
   )
 }
