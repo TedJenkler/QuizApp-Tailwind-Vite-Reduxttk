@@ -7,8 +7,10 @@ export default {
   theme: {
     extend: {
       colors: {
+        'lightbg': '#F4F6FA',
         'grey-navy': '#626C7F',
         'dark-navy': '#313E51',
+        'pure-white': '#FFFFFF'
       },
     },
   },
