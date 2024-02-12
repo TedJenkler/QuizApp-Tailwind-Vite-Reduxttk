@@ -10,14 +10,14 @@ function QuizDisplay() {
   return (
     <main className='pt-8 px-6 bg-lightbg'>
         {selectedTopic === "" ? <Welcome /> : null}
-        {selectedTopic === "HTML" ? <If selectedTopic={0} /> : null}
-        {selectedTopic === "CSS" ? <If selectedTopic={1} /> : null}
-        {selectedTopic === "JavaScript" ? <If selectedTopic={2} /> : null}
-        {selectedTopic === "Accessibility" ? <If selectedTopic={3} /> : null}
+        {selectedTopic === "HTML" ? <If selectedTopic={0} setSelectedTopic={setSelectedTopic} /> : null}
+        {selectedTopic === "CSS" ? <If selectedTopic={1} setSelectedTopic={setSelectedTopic} /> : null}
+        {selectedTopic === "JavaScript" ? <If selectedTopic={2} setSelectedTopic={setSelectedTopic} /> : null}
+        {selectedTopic === "Accessibility" ? <If selectedTopic={3} setSelectedTopic={setSelectedTopic} /> : null}
         {selectedTopic === "" ? state.map((state) => {
             return (
                 <div key={state.title} className='flex flex-col'>
-                    <button className='flex items-center gap-3 mb-6 bg-pure-white p-3' onClick={(e) => {setSelectedTopic(state.title)}}><img src={`${state.icon}`} />{state.title}</button>
+                    <button className='flex items-center gap-3 mb-6 bg-pure-white p-3 rounded-xl' onClick={(e) => {setSelectedTopic(state.title)}}><img src={`${state.icon}`} />{state.title}</button>
                 </div>
             )
         })

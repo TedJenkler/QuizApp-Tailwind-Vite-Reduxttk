@@ -10,7 +10,8 @@ export default {
         'lightbg': '#F4F6FA',
         'grey-navy': '#626C7F',
         'dark-navy': '#313E51',
-        'pure-white': '#FFFFFF'
+        'pure-white': '#FFFFFF',
+        'purple': '#A729F5',
       },
     },
   },
