@@ -8,7 +8,7 @@ function QuizDisplay() {
     console.log(selectedTopic)
     const state = useSelector((state) => state.state.quizzes)
   return (
-    <main className='pt-8 px-6 bg-lightbg'>
+    <main className='pt-8 px-6 bg-lightbg h-screen'>
         {selectedTopic === "" ? <Welcome /> : null}
         {selectedTopic === "HTML" ? <If selectedTopic={0} setSelectedTopic={setSelectedTopic} /> : null}
         {selectedTopic === "CSS" ? <If selectedTopic={1} setSelectedTopic={setSelectedTopic} /> : null}
@@ -17,7 +17,7 @@ function QuizDisplay() {
         {selectedTopic === "" ? state.map((state) => {
             return (
                 <div key={state.title} className='flex flex-col'>
-                    <button className='flex items-center gap-3 mb-6 bg-pure-white p-3 rounded-xl' onClick={(e) => {setSelectedTopic(state.title)}}><img src={`${state.icon}`} />{state.title}</button>
+                    <button className='flex items-center mb-3 bg-pure-white p-3 rounded-xl font-bold' onClick={(e) => {setSelectedTopic(state.title)}}><img className='pr-3' src={`${state.icon}`} />{state.title}</button>
                 </div>
             )
         })
