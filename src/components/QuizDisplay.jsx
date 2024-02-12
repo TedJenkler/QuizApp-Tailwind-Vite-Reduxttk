@@ -5,7 +5,6 @@ import If from './If'
 
 function QuizDisplay() {
     const [selectedTopic, setSelectedTopic] = useState("")
-    console.log(selectedTopic)
     const state = useSelector((state) => state.state.quizzes)
   return (
     <main className='pt-8 px-6 bg-lightbg h-screen'>

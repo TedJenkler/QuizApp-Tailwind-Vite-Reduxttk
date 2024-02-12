@@ -6,12 +6,9 @@ import TotalScore from './TotalScore'
 
 function If( {selectedTopic, setSelectedTopic} ) {
   const state = useSelector((state) => state.state.quizzes[selectedTopic].questions)
-  console.log(state)
   const [selectedQ, setSelectedQ] = useState(0)
   const [choice, setChoice] = useState("")
   const [points, setPoints] = useState(0)
-  console.log(choice)
-    console.log(points)
   return (
     <>
     {selectedQ === 0 ? <QuestionRenderer selectedTopic={selectedTopic} selectedQ={selectedQ} setSelectedQ={setSelectedQ} choice={choice} setChoice={setChoice} points={points} setPoints={setPoints} /> : null}
