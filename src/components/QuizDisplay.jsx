@@ -2,12 +2,14 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import Welcome from './Welcome'
 import If from './If'
+import DarkModeSwitch from './DarkModeSwitch'
 
 function QuizDisplay() {
     const [selectedTopic, setSelectedTopic] = useState("")
     const state = useSelector((state) => state.state.quizzes)
   return (
     <main className='pt-8 px-6 bg-lightbg h-screen'>
+      <DarkModeSwitch />
         {selectedTopic === "" ? <Welcome /> : null}
         {selectedTopic === "HTML" ? <If selectedTopic={0} setSelectedTopic={setSelectedTopic} /> : null}
         {selectedTopic === "CSS" ? <If selectedTopic={1} setSelectedTopic={setSelectedTopic} /> : null}
