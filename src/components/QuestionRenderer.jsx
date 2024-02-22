@@ -5,20 +5,32 @@ import b from "../assets/images/b.png"
 import c from "../assets/images/c.png"
 import d from "../assets/images/d.png"
 import right from "../assets/images/right-answer.svg"
+import wrong from "../assets/images/wrong-answer.svg"
 
 function QuestionRenderer( {selectedTopic, selectedQ, setSelectedQ, choice, setChoice, points, setPoints} ) {
     const state = useSelector((state) => state.state.quizzes[selectedTopic].questions[selectedQ])
     const darkMode = useSelector((state) => state.state.darkMode)
     console.log(choice)
     const [submited, setSubmited] = useState(false)
+    const [alert, setAlert] = useState(false)
     const checkIfRight = () => {
-        if(choice === state.answer){
+        if(choice === state.answer && choice !== ""){
             setPoints(points + 1)
+            setAlert(false)
+            setSubmited(true)
+        }
+        else if(choice !== "") {
+            setAlert(false)
             setSubmited(true)
         }
         else {
-            setSubmited(true)
+            setAlert(true)
         }
+    }
+
+    const sendToNext = () => {
+        setChoice("")
+        setSelectedQ(selectedQ + 1)
     }
   return (
     <div className='lg:flex lg:gap-32'>
@@ -30,13 +42,14 @@ function QuestionRenderer( {selectedTopic, selectedQ, setSelectedQ, choice, setC
         </div>
         </div>
         <div className='lg:w-1/2'>
-            <button onClick={(e) => {submited === false ? setChoice(state.options[0]): null}} className={`${darkMode === "dark" ? "flex items-center mb-3 justify-between p-3 rounded-xl w-full focus:border-purple focus:border-4 bg-navy shadow-2xl text-white md:mb-6" : "flex items-center mb-3 bg-pure-white p-3 rounded-xl w-full focus:border-purple focus:border-4 md:mb-6"}`}><div className='flex items-center'><img className='mr-3' src={a} alt='a' />{state.options[0]}</div>{choice === state.answer && choice === state.options[0] && submited === true ? <img src={right} alt='right answer' /> : null}</button>
-            <button onClick={(e) => {submited === false ? setChoice(state.options[1]): null}} className={`${darkMode === "dark" ? "flex items-center mb-3 justify-between p-3 rounded-xl w-full focus:border-purple focus:border-4 bg-navy shadow-2xl text-white md:mb-6" : "flex items-center mb-3 bg-pure-white p-3 rounded-xl w-full focus:border-purple focus:border-4 md:mb-6"}`}><div className='flex items-center'><img className='mr-3' src={b} alt='b' />{state.options[1]}</div>{choice === state.answer && choice === state.options[1] && submited === true ? <img src={right} alt='right answer' /> : null}</button>
-            <button onClick={(e) => {submited === false ? setChoice(state.options[2]): null}} className={`${darkMode === "dark" ? "flex items-center mb-3 justify-between p-3 rounded-xl w-full focus:border-purple focus:border-4 bg-navy shadow-2xl text-white md:mb-6" : "flex items-center mb-3 bg-pure-white p-3 rounded-xl w-full focus:border-purple focus:border-4 md:mb-6"}`}><div className='flex items-center'><img className='mr-3' src={c} alt='c' />{state.options[2]}</div>{choice === state.answer && choice === state.options[2] && submited === true ? <img src={right} alt='right answer' /> : null}</button>
-            <button onClick={(e) => {submited === false ? setChoice(state.options[3]): null}} className={`${darkMode === "dark" ? "flex items-center mb-3 justify-between p-3 rounded-xl w-full focus:border-purple focus:border-4 bg-navy shadow-2xl text-white md:mb-8" : "flex items-center mb-3 bg-pure-white p-3 rounded-xl w-full focus:border-purple focus:border-4 md:mb-8"}`}><div className='flex items-center'><img className='mr-3' src={d} alt='d' />{state.options[3]}</div>{choice === state.answer && choice === state.options[3] && submited === true ? <img src={right} alt='right answer' /> : null}</button>
+            <button onClick={(e) => {submited === false ? setChoice(state.options[0]): null}} className={`${darkMode === "dark" ? "flex items-center mb-3 justify-between p-3 rounded-xl w-full focus:border-purple focus:border-4 bg-navy shadow-2xl text-white md:mb-6" : "flex items-center justify-between mb-3 bg-pure-white p-3 rounded-xl w-full focus:border-purple focus:border-4 md:mb-6"}`}><div className='flex items-center'><img className='mr-3' src={a} alt='a' />{state.options[0]}</div>{choice === state.answer && choice === state.options[0] && submited === true ? <img src={right} alt='right answer' /> : null}{choice !== state.answer && submited === true ? <img src={wrong} alt='wrong answer' /> : null}</button>
+            <button onClick={(e) => {submited === false ? setChoice(state.options[1]): null}} className={`${darkMode === "dark" ? "flex items-center mb-3 justify-between p-3 rounded-xl w-full focus:border-purple focus:border-4 bg-navy shadow-2xl text-white md:mb-6" : "flex items-center justify-between mb-3 bg-pure-white p-3 rounded-xl w-full focus:border-purple focus:border-4 md:mb-6"}`}><div className='flex items-center'><img className='mr-3' src={b} alt='b' />{state.options[1]}</div>{choice === state.answer && choice === state.options[1] && submited === true ? <img src={right} alt='right answer' /> : null}{choice !== state.answer && submited === true ? <img src={wrong} alt='wrong answer' /> : null}</button>
+            <button onClick={(e) => {submited === false ? setChoice(state.options[2]): null}} className={`${darkMode === "dark" ? "flex items-center mb-3 justify-between p-3 rounded-xl w-full focus:border-purple focus:border-4 bg-navy shadow-2xl text-white md:mb-6" : "flex items-center justify-between mb-3 bg-pure-white p-3 rounded-xl w-full focus:border-purple focus:border-4 md:mb-6"}`}><div className='flex items-center'><img className='mr-3' src={c} alt='c' />{state.options[2]}</div>{choice === state.answer && choice === state.options[2] && submited === true ? <img src={right} alt='right answer' /> : null}{choice !== state.answer && submited === true ? <img src={wrong} alt='wrong answer' /> : null}</button>
+            <button onClick={(e) => {submited === false ? setChoice(state.options[3]): null}} className={`${darkMode === "dark" ? "flex items-center mb-3 justify-between p-3 rounded-xl w-full focus:border-purple focus:border-4 bg-navy shadow-2xl text-white md:mb-8" : "flex items-center justify-between mb-3 bg-pure-white p-3 rounded-xl w-full focus:border-purple focus:border-4 md:mb-8"}`}><div className='flex items-center'><img className='mr-3' src={d} alt='d' />{state.options[3]}</div>{choice === state.answer && choice === state.options[3] && submited === true ? <img src={right} alt='right answer' /> : null}{choice !== state.answer && submited === true ? <img src={wrong} alt='wrong answer' /> : null}</button>
             {submited === false ? <button onClick={checkIfRight} className='text-lg flex items-center gap-3 mb-6 bg-purple text-white p-3 rounded-xl w-full justify-center font-medium'>Submit Answer</button> 
-            : <button className='text-lg flex items-center gap-3 mb-6 bg-purple text-white p-3 rounded-xl w-full justify-center font-medium' onClick={(e) => setSelectedQ(selectedQ + 1)}>Next Question</button> }
+            : <button className='text-lg flex items-center gap-3 mb-6 bg-purple text-white p-3 rounded-xl w-full justify-center font-medium' onClick={sendToNext}>Next Question</button> }
         </div>
+        {alert === true ? <p>Please select an answer</p> : null}
     </div>
   )
 }
