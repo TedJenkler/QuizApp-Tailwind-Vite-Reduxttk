@@ -9,7 +9,7 @@ export default {
       colors: {
         'lightbg': '#F4F6FA',
         'grey-navy': '#626C7F',
-        'dark-navy': '#313E51',
+        'darknavy': '#313E51',
         'pure-white': '#FFFFFF',
         'purple': '#A729F5',
         'navy': '#3B4D66',

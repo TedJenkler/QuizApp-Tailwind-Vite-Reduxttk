@@ -13,7 +13,7 @@ function QuizDisplay() {
   console.log(darkMode)
 
   return (
-    <main className={`pt-8 px-6 bg-lightbg bg-no-repeat bg-left-bottom md:pt-14 md:px-16 md:bg-left-top lg:px-36 ${darkMode === "dark" ? "bg-dark-navy bg-pattern-dark md:bg-pattern-dark-tablet" : "bg-lightbg bg-pattern-light md:bg-pattern-light-tablet"} h-full lg:h-screen pb-32`}>
+    <main className={`pt-8 px-6 bg-lightbg bg-no-repeat bg-left-bottom md:pt-14 md:px-16 md:bg-left-top lg:px-36 ${darkMode === "dark" ? "bg-darknavy bg-pattern-dark md:bg-pattern-dark-tablet" : "bg-lightbg bg-pattern-light md:bg-pattern-light-tablet"} h-full lg:h-screen pb-32`}>
       <div className='flex justify-between items-center mb-8 md:mb-16'>
       <TopicDisplay selectedTopic={selectedTopic} />
       <DarkModeSwitch />
