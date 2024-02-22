@@ -12,6 +12,8 @@ export default {
         'dark-navy': '#313E51',
         'pure-white': '#FFFFFF',
         'purple': '#A729F5',
+        'navy': '#3B4D66',
+        'light-blue': '#ABC1E1',
       },
     },
   },
