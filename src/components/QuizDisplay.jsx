@@ -13,12 +13,16 @@ function QuizDisplay() {
   console.log(darkMode)
 
   return (
-    <main className={`pt-8 px-6 bg-lightbg bg-no-repeat bg-left-bottom md:bg-left-top ${darkMode === "dark" ? "bg-navy bg-pattern-dark md:bg-pattern-dark-tablet" : "bg-lightbg bg-pattern-light md:bg-pattern-light-tablet"} h-screen pb-32`}>
+    <main className={`pt-8 px-6 bg-lightbg bg-no-repeat bg-left-bottom md:bg-left-top lg:px-36 ${darkMode === "dark" ? "bg-dark-navy bg-pattern-dark md:bg-pattern-dark-tablet" : "bg-lightbg bg-pattern-light md:bg-pattern-light-tablet"} h-screen pb-32`}>
       <div className='flex justify-between items-center mb-8'>
       <TopicDisplay selectedTopic={selectedTopic} />
       <DarkModeSwitch />
       </div>
-        {selectedTopic === "" ? <Welcome /> : null}
+      <div className={selectedTopic === "" ? "lg:flex" : null}>
+        <div className={selectedTopic === "" ? "lg:w-1/2" : null}>
+          {selectedTopic === "" ? <Welcome /> : null}
+        </div>
+        <div className={selectedTopic === "" ? "lg:w-1/2" : null}>
         {selectedTopic === "HTML" ? <If selectedTopic={0} setSelectedTopic={setSelectedTopic} /> : null}
         {selectedTopic === "CSS" ? <If selectedTopic={1} setSelectedTopic={setSelectedTopic} /> : null}
         {selectedTopic === "JavaScript" ? <If selectedTopic={2} setSelectedTopic={setSelectedTopic} /> : null}
@@ -31,6 +35,8 @@ function QuizDisplay() {
             )
         })
        : null }
+       </div>
+      </div>
     </main>
   )
 }

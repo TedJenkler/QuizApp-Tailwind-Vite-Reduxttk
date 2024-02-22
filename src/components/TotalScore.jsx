@@ -10,9 +10,12 @@ function TotalScore( {points, selectedTopic, setSelectedQ, setPoints, setSelecte
         setSelectedQ(0)
     }
   return (
-    <div>
-        <h1 className={`${darkMode === "dark" ? "font-light text-white" : "font-light text-dark-navy"}`}>Quiz completed</h1>
-        <h1 className={`${darkMode === "dark" ? "mb-10 text-white font-medium" : "mb-10 text-dark-navy font-medium"}`}>You scored...</h1>
+    <div className='lg:flex'>
+        <div className='lg:w-1/2'>
+            <h1 className={`${darkMode === "dark" ? "font-light text-white" : "font-light text-dark-navy"}`}>Quiz completed</h1>
+            <h1 className={`${darkMode === "dark" ? "mb-10 text-white font-medium" : "mb-10 text-dark-navy font-medium"}`}>You scored...</h1>
+        </div>
+        <div className='lg:w-1/2'>
         <div className={`${darkMode === "dark" ? "font-normal bg-navy shadow-2xl rounded-xl p-8 flex flex-col items-center mb-3" : "bg-white rounded-xl p-8 flex flex-col items-center mb-3"}`}>
             <div className='flex items-center mb-4'>
                 <img className='pr-3' src={`${state[selectedTopic].icon}`} />
@@ -22,6 +25,7 @@ function TotalScore( {points, selectedTopic, setSelectedQ, setPoints, setSelecte
             <p className={`${darkMode === "dark" ? "text-light-blue font-medium text-lg" : "text-grey-navy font-medium text-lg"}`}>out of 10</p>
         </div>
         <button onClick={reset} className='text-lg flex items-center gap-3 mb-6 bg-purple text-white p-3 rounded-xl w-full justify-center font-medium'>Play Again</button>
+        </div>
     </div>
   )
 }
