@@ -48,8 +48,11 @@ function QuestionRenderer( {selectedTopic, selectedQ, setSelectedQ, choice, setC
             <button onClick={(e) => {submited === false ? setChoice(state.options[3]): null}} className={`${darkMode === "dark" ? "flex items-center mb-3 justify-between p-3 rounded-xl w-full focus:border-purple focus:border-4 bg-navy shadow-2xl text-white md:mb-8" : "flex items-center justify-between mb-3 bg-pure-white p-3 rounded-xl w-full focus:border-purple focus:border-4 md:mb-8"}`}><div className='flex items-center'><img className={choice === state.answer && choice === state.options[3] && submited === true ? 'mr-3 bg-green p-2 rounded' : choice !== state.answer && choice === state.options[3] && submited === true ? 'mr-3 bg-red p-2 rounded' : 'mr-3 bg-white p-2 rounded' } src={d} alt='d' />{state.options[3]}</div>{choice === state.answer && choice === state.options[3] && submited === true ? <img src={right} alt='right answer' /> : null}{choice !== state.answer && choice === state.options[3] && submited === true ? <img src={wrong} alt='wrong answer' /> : null}</button>
             {submited === false ? <button onClick={checkIfRight} className='text-lg flex items-center gap-3 mb-6 bg-purple text-white p-3 rounded-xl w-full justify-center font-medium'>Submit Answer</button> 
             : <button className='text-lg flex items-center gap-3 mb-6 bg-purple text-white p-3 rounded-xl w-full justify-center font-medium' onClick={sendToNext}>Next Question</button> }
+            <div className='flex justify-center items-center'>
+                {alert === true ? <img src={wrong} alt='Need to make a choice' /> : null}
+                {alert === true ? <p className='text-red text-2xl'>Please select an answer</p> : null}
+            </div>
         </div>
-        {alert === true ? <p>Please select an answer</p> : null}
     </div>
   )
 }
