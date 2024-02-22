@@ -12,11 +12,11 @@ function TotalScore( {points, selectedTopic, setSelectedQ, setPoints, setSelecte
   return (
     <div className='lg:flex'>
         <div className='lg:w-1/2'>
-            <h1 className={`${darkMode === "dark" ? "font-light text-white" : "font-light text-dark-navy"}`}>Quiz completed</h1>
-            <h1 className={`${darkMode === "dark" ? "mb-10 text-white font-medium" : "mb-10 text-dark-navy font-medium"}`}>You scored...</h1>
+            <h1 className={`${darkMode === "dark" ? "font-light text-white md:text-7xl" : "font-light text-dark-navy md:text-7xl"}`}>Quiz completed</h1>
+            <h1 className={`${darkMode === "dark" ? "mb-10 text-white font-medium md:text-7xl" : "mb-10 text-dark-navy font-medium md:text-7xl"}`}>You scored...</h1>
         </div>
         <div className='lg:w-1/2'>
-        <div className={`${darkMode === "dark" ? "font-normal bg-navy shadow-2xl rounded-xl p-8 flex flex-col items-center mb-3" : "bg-white rounded-xl p-8 flex flex-col items-center mb-3"}`}>
+        <div className={`${darkMode === "dark" ? "font-normal bg-navy shadow-2xl rounded-xl p-8 flex flex-col items-center mb-3 md:mb-8" : "bg-white rounded-xl p-8 flex flex-col items-center mb-3 md:mb-8"}`}>
             <div className='flex items-center mb-4'>
                 <img className='pr-3' src={`${state[selectedTopic].icon}`} />
                 <p className={`${darkMode === "dark" ? "text-lg font-medium text-white" : "text-lg font-medium text-dark-navy"}`}>{state[selectedTopic].title}</p>

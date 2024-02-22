@@ -13,8 +13,8 @@ function QuizDisplay() {
   console.log(darkMode)
 
   return (
-    <main className={`pt-8 px-6 bg-lightbg bg-no-repeat bg-left-bottom md:bg-left-top lg:px-36 ${darkMode === "dark" ? "bg-dark-navy bg-pattern-dark md:bg-pattern-dark-tablet" : "bg-lightbg bg-pattern-light md:bg-pattern-light-tablet"} h-screen pb-32`}>
-      <div className='flex justify-between items-center mb-8'>
+    <main className={`pt-8 px-6 bg-lightbg bg-no-repeat bg-left-bottom md:pt-14 md:px-16 md:bg-left-top lg:px-36 ${darkMode === "dark" ? "bg-dark-navy bg-pattern-dark md:bg-pattern-dark-tablet" : "bg-lightbg bg-pattern-light md:bg-pattern-light-tablet"} h-full pb-32`}>
+      <div className='flex justify-between items-center mb-8 md:mb-16'>
       <TopicDisplay selectedTopic={selectedTopic} />
       <DarkModeSwitch />
       </div>
@@ -30,7 +30,7 @@ function QuizDisplay() {
         {selectedTopic === "" ? state.map((state) => {
             return (
                 <div key={state.title} className='flex flex-col'>
-                    <button className={`${darkMode === "dark" ? "text-lg font-medium flex items-center mb-3 bg-navy shadow-2xl text-white p-3 rounded-xl" : "text-lg font-medium flex items-center mb-3 bg-pure-white p-3 rounded-xl"}`} onClick={(e) => {setSelectedTopic(state.title)}}><img className='pr-3' src={`${state.icon}`} />{state.title}</button>
+                    <button className={`${darkMode === "dark" ? "text-lg font-medium flex items-center mb-3 md:mb-6 bg-navy shadow-2xl text-white p-3 rounded-xl" : "md:mb-6 text-lg font-medium flex items-center mb-3 bg-pure-white p-3 rounded-xl"}`} onClick={(e) => {setSelectedTopic(state.title)}}><img className='pr-3' src={`${state.icon}`} />{state.title}</button>
                 </div>
             )
         })
