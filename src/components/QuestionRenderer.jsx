@@ -28,7 +28,7 @@ function QuestionRenderer( {selectedTopic, selectedQ, setSelectedQ, choice, setC
         <button onClick={(e) => {setChoice(state.options[1])}} className={`${darkMode === "dark" ? "flex items-center mb-3 p-3 rounded-xl w-full focus:border-purple focus:border-4 bg-navy shadow-2xl text-white" : "flex items-center mb-3 bg-pure-white p-3 rounded-xl w-full focus:border-purple focus:border-4"}`}><img className='mr-3' src={b} alt='b' />{state.options[1]}</button>
         <button onClick={(e) => {setChoice(state.options[2])}} className={`${darkMode === "dark" ? "flex items-center mb-3 p-3 rounded-xl w-full focus:border-purple focus:border-4 bg-navy shadow-2xl text-white" : "flex items-center mb-3 bg-pure-white p-3 rounded-xl w-full focus:border-purple focus:border-4"}`}><img className='mr-3' src={c} alt='c' />{state.options[2]}</button>
         <button onClick={(e) => {setChoice(state.options[3])}} className={`${darkMode === "dark" ? "flex items-center mb-3 p-3 rounded-xl w-full focus:border-purple focus:border-4 bg-navy shadow-2xl text-white" : "flex items-center mb-3 bg-pure-white p-3 rounded-xl w-full focus:border-purple focus:border-4"}`}><img className='mr-3' src={d} alt='d' />{state.options[3]}</button>
-        <button onClick={checkIfRight} className='flex items-center gap-3 mb-6 bg-purple text-white p-3 rounded-xl w-full justify-center font-medium'>Submit Answer</button>
+        <button onClick={checkIfRight} className='text-lg flex items-center gap-3 mb-6 bg-purple text-white p-3 rounded-xl w-full justify-center font-medium'>Submit Answer</button>
     </div>
   )
 }

@@ -14,7 +14,12 @@ export default {
         'purple': '#A729F5',
         'navy': '#3B4D66',
         'light-blue': '#ABC1E1',
+        'grey-navy': '#626C7F'
       },
+      backgroundImage: {
+        'pattern-dark': "url('./src/assets/images/bg-mobile.svg')",
+        'pattern-light': "url('./src/assets/images/bg-mobile-light.svg')",
+      }
     },
   },
   plugins: [],
