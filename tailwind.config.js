@@ -19,6 +19,8 @@ export default {
       backgroundImage: {
         'pattern-dark': "url('./src/assets/images/bg-mobile.svg')",
         'pattern-light': "url('./src/assets/images/bg-mobile-light.svg')",
+        'pattern-dark-tablet': "url('./src/assets/images/bg-tablet.svg')",
+        'pattern-light-tablet': "url('./src/assets/images/bg-tablet-light.png')",
       }
     },
   },
