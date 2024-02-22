@@ -15,7 +15,8 @@ export default {
         'navy': '#3B4D66',
         'light-blue': '#ABC1E1',
         'grey-navy': '#626C7F',
-        'green': '#26D782'
+        'green': '#26D782',
+        'red': '#EE5454'
       },
       backgroundImage: {
         'pattern-dark': "url('./src/assets/images/bg-mobile.svg')",
